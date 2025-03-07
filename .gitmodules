@@ -1,0 +1,3 @@
+[submodule "projects/AccessibleComponent"]
+	path = projects/AccessibleComponent
+	url = https://github.com/shufanhe/AccessibleComponent.git
