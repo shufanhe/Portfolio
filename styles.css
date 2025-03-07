@@ -16,17 +16,14 @@ header {
     padding-top: 4%;
     padding-right: 5%;
 }
-
 header ul {
     display: flex;  /* To keep the items in a row */
     padding: 0;
     margin: 0;
 }
-
 header li {
     list-style: none;  /* Removes default list style */
 }
-
 header a {
     text-decoration: none;
     color: black;
@@ -34,7 +31,6 @@ header a {
     font-size: 16px;
     padding: 5px 10px;  /* Optional: adds space inside the link, improving clickability */
 }
-
 header a:hover {
     color: #ff6347;  /* Example hover color */
 }
