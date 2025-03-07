@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,100..1000&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <a href="home.html">Home</a>
+        <a href="projects.html">Projects</a>
+        <a href="about.html">About</a>
+    </header>
+    <div class="title-container">
+        <h1 id="typedtext"></h1>
+    </div>
+
+     <script>
+        var aText = new Array(
+            "Hi, I'm Shufan", 
+            "I'm a Web Developer"
+        );
+        var iSpeed = 100; // time delay of print out
+        var iIndex = 0; // start printing array at this position
+        var iTextPos = 0; // initialise text position
+        var sContents = ''; // initialise contents variable
+        var iArrLength = aText[0].length; // length of first string
+        var destination = document.getElementById("typedtext");
+        
+        function typewriter(){     
+            var destination = document.getElementById("typedtext");
+            
+            // If we're on the second sentence, add a line break
+            if (iIndex > 0) {
+                sContents = aText[0] + '<br />';
+            } else {
+                sContents = '';
+            }
+
+            // Add the current text being typed
+            destination.innerHTML = sContents + aText[iIndex].substring(0, iTextPos) + "_";
+            
+            if ( iTextPos++ == iArrLength ) {
+                iTextPos = 0;
+                iIndex++;
+                if ( iIndex != aText.length ) {
+                    iArrLength = aText[iIndex].length;
+                    setTimeout("typewriter()", 500);
+                }
+            } else {
+                setTimeout("typewriter()", iSpeed);
+            }
+        }
+
+        // Start the typewriter effect when the page loads
+        window.onload = typewriter;
+    </script>
+
+
+</body>
