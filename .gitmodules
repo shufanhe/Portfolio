@@ -6,4 +6,4 @@
 	url = https://github.com/shufanhe/ElevatorInterface.git
 [submodule "projects/Redesign"]
 	path = projects/Redesign
-	url = https://shufanhe.github.io/Redesign/
+	url = https://github.com/shufanhe/Redesign
