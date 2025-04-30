@@ -4,3 +4,6 @@
 [submodule "projects/ElevatorInterface"]
 	path = projects/ElevatorInterface
 	url = https://github.com/shufanhe/ElevatorInterface.git
+[submodule "projects/Redesign"]
+	path = projects/Redesign
+	url = https://shufanhe.github.io/Redesign/
