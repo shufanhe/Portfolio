@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,100..1000&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script
+        src="https://code.jquery.com/jquery-3.3.1.js"
+        integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+        crossorigin="anonymous">
+    </script>
+
+<style>
+    @import url('clash-display.css');
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family:'Roboto Flex', sans-serif;
+        font-weight: lighter;
+    }
+    body {
+        font-family: 'Roboto', monospace;
+        margin: 0;
+        padding: 0;
+        font-weight: lighter;
+        overflow-x: hidden; /* prevent horizontal scroll just in case */
+    }
+
+    .main-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 2rem 5%; /* reasonable padding */
+        height: calc(100vh - 70px);
+        max-width: 100%; /* don't exceed viewport */
+        box-sizing: border-box;
+    }
+
+    #typewriter {
+        text-align: left;
+        font-size: 4rem; /* bigger font */
+        line-height: 1.2;
+        max-width: 60%; /* limit width to avoid overflow */
+        word-break: break-word; /* ensure text wraps if needed */
+    }
+
+    .line {
+        white-space: pre; /* preserve spaces, but allow wrapping if too long */
+    }
+
+    .cursor {
+        display: inline-block;
+        width: 1ch;
+        animation: blink 1s step-start infinite;
+    }
+
+    @keyframes blink {
+        50% { opacity: 0; }
+    }
+
+    .image-container {
+        margin-left: auto;          /* container stays at right */
+        display: flex;              /* enable flex */
+        justify-content: center;    /* horizontal centering inside container */
+        align-items: center;        /* vertical centering inside container */
+    }
+
+
+    .image-container img {
+        display: inline-block; /* ensures alignment works */
+        margin-left: auto;      /* push to right inside container */
+        max-height: 500px;      /* increased from 400px */
+        max-width: 45%;         /* increased from 35% */
+        object-fit: contain;
+    }
+
+    @media (max-width: 768px) {
+        .main-container {
+            flex-direction: column;
+            justify-content: flex-start;
+            padding: 2rem 2rem;
+            height: auto;
+        }
+
+        #typewriter {
+            font-size: 3rem;
+            max-width: 100%;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .image-container img {
+            max-width: 80%;
+            max-height: 300px;
+        }
+    }
+</style>
+
+
+</head>
+<body>
+
+    <header>
+        <a href="index.html">Home</a>
+        <a href="projects.html">Projects</a>
+        <a href="about.html">About</a>
+    </header>
+
+    <div class="main-container">
+    <div id="typewriter">
+        <div class="line" id="line1"><span class="cursor">_</span></div>
+        <div class="line" id="line2"><span class="cursor">_</span></div>
+    </div>
+
+    <div class="image-container">
+        <img src="assets/AdobeStock_523801451 2.png" alt="Profile Image">
+    </div>
+    </div>
+
+    <script>
+        const lines = [
+            "Hi, I'm Shufan",
+            "I'm a Software Developer"
+        ];
+
+        const speed = 100;
+        let currentLine = 0;
+        let currentChar = 0;
+
+        function typeLine() {
+            if (currentLine >= lines.length) return;
+
+            const lineEl = document.getElementById(`line${currentLine+1}`);
+            const cursor = lineEl.querySelector(".cursor");
+
+            lineEl.textContent = lines[currentLine].substring(0, currentChar);
+            lineEl.appendChild(cursor);
+
+            currentChar++;
+
+            if (currentChar <= lines[currentLine].length) {
+                setTimeout(typeLine, speed);
+            } else {
+                // Stop blinking cursor on the previous line (only if first line just finished)
+                if (currentLine === 0) {
+                const firstCursor = document.querySelector("#line1 .cursor");
+                firstCursor.style.animation = "none"; // stop blinking
+                firstCursor.textContent = ""; // optionally remove underscore
+                }
+
+                currentLine++;
+                currentChar = 0;
+                setTimeout(typeLine, 500);
+            }
+        }
+
+        window.onload = typeLine;
+    </script>
+
+
+</body>
+</html>
+
+</html>

@@ -8,16 +8,12 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,100..1000&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.tailwindcss.com"></script>
     <script
         src="https://code.jquery.com/jquery-3.3.1.js"
         integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
         crossorigin="anonymous">
     </script>
-    <script> 
-    $(function(){
-    $("#header").load("header.html"); 
-    });
-    </script> 
 </head>
 <body>
     <header>
@@ -25,51 +21,21 @@
         <a href="projects.html">Projects</a>
         <a href="about.html">About</a>
     </header>
-
-    <div class="title-container">
-        <h1 id="typedtext"></h1>
-    </div>
-
-     <script>
-        var aText = new Array(
-            "Hi, I'm Shufan", 
-            "I'm a Software Developer"
-        );
-        var iSpeed = 100; // time delay of print out
-        var iIndex = 0; // start printing array at this position
-        var iTextPos = 0; // initialise text position
-        var sContents = ''; // initialise contents variable
-        var iArrLength = aText[0].length; // length of first string
-        var destination = document.getElementById("typedtext");
+    <div class="flex flex-col md:flex-row h-[calc(100vh-4rem)]"> 
         
-        function typewriter(){     
-            var destination = document.getElementById("typedtext");
-            
-            // If we're on the second sentence, add a line break
-            if (iIndex > 0) {
-                sContents = aText[0] + '<br />';
-            } else {
-                sContents = '';
-            }
+        <div class="w-full md:w-2/3 flex justify-center items-center">
+            <div class="px-4 flex flex-col items-center"> 
+                <h1 class="text-2xl md:text-4xl text-center leading-relaxed md:leading-relaxed" style="font-family: 'Roboto Flex', sans-serif;">
+                    <div class="text-center"><span class="font-semibold text-3xl md:text-5xl">Hi! I’m Shufan,</span></div>
+                    <div class="text-center">I’m a <span class="font-semibold text-3xl md:text-5xl">Fullstack Developer</span> passionate about</div>
+                    <div class="text-center">building user-centric applications</div>
+                </h1>
+            </div>
+        </div>
 
-            // Add the current text being typed
-            destination.innerHTML = sContents + aText[iIndex].substring(0, iTextPos) + "_";
-            
-            if ( iTextPos++ == iArrLength ) {
-                iTextPos = 0;
-                iIndex++;
-                if ( iIndex != aText.length ) {
-                    iArrLength = aText[iIndex].length;
-                    setTimeout("typewriter()", 500);
-                }
-            } else {
-                setTimeout("typewriter()", iSpeed);
-            }
-        }
-
-        // Start the typewriter effect when the page loads
-        window.onload = typewriter;
-    </script>
-
+        <div class="w-full md:w-1/3 flex justify-center items-center p-6">
+            <img src="assets/AdobeStock_523801451 2.png" alt="Profile Image" class="max-w-xs object-contain" />
+        </div>          
+    </div>
 
 </body>
